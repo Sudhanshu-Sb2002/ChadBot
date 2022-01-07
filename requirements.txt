@@ -1,0 +1,24 @@
+aiohttp @ file:///C:/ci/aiohttp_1632750093640/work
+async-timeout==3.0.1
+attrs @ file:///tmp/build/80754af9/attrs_1620827162558/work
+backcall @ file:///home/ktietz/src/ci/backcall_1611930011877/work
+certifi==2021.10.8
+chardet @ file:///C:/ci/chardet_1607690654534/work
+colorama @ file:///tmp/build/80754af9/colorama_1607707115595/work
+decorator @ file:///tmp/build/80754af9/decorator_1632776554403/work
+discord.py @ git+https://github.com/Rapptz/discord.py@45d498c1b76deaf3b394d17ccf56112fa691d160
+idna @ file:///tmp/build/80754af9/idna_1637925883363/work
+ipython @ file:///C:/ci/ipython_1635944310712/work
+jedi @ file:///C:/ci/jedi_1611315808330/work
+matplotlib-inline @ file:///tmp/build/80754af9/matplotlib-inline_1628242447089/work
+multidict @ file:///C:/ci/multidict_1607362065515/work
+NEURON==8.0
+parso @ file:///tmp/build/80754af9/parso_1617223946239/work
+pickleshare @ file:///tmp/build/80754af9/pickleshare_1606932040724/work
+prompt-toolkit @ file:///tmp/build/80754af9/prompt-toolkit_1633440160888/work
+Pygments @ file:///tmp/build/80754af9/pygments_1629234116488/work
+traitlets @ file:///tmp/build/80754af9/traitlets_1636710298902/work
+typing-extensions @ file:///tmp/build/80754af9/typing_extensions_1631814937681/work
+wcwidth @ file:///Users/ktietz/demo/mc3/conda-bld/wcwidth_1629357192024/work
+wincertstore==0.2
+yarl @ file:///C:/ci/yarl_1606940076464/work
