@@ -24,7 +24,6 @@ class Status(commands.Cog):
         # Values - A dictionary with: (Keys-Text Channel Objects, Values- a list [creation time for all messages within
         # recent time, no. of recent messages(within recent time), no of messages]))
 
-
         for i in self.bot.guilds:
             self.meta_list[i] = self.server_data_init(i)
 
@@ -39,9 +38,10 @@ class Status(commands.Cog):
         self.startupvariables()
         return
 
-    def server_data_init(self,server):
+    def server_data_init(self, server):
         if server is not None:
             return {j: self.channel_data_init() for j in server.text_channels}
+
     def channel_data_init(self):
         # initialises the data collection list for channels
         return [deque(maxlen=self.q_len), 0, 0, True]
@@ -55,18 +55,18 @@ class Status(commands.Cog):
 
     def most_used_channel_core(self, server_list):
         max_messages, max_channel = 0, None
-        max_data=None
+        max_data = None
         for server, server_data in server_list.items():
             print(server)
             for channel, channel_data in server_data.items():
                 if channel_data[3]:
                     if channel_data[1] >= max_messages:
-                        max_data=channel_data
+                        max_data = channel_data
                         max_messages = channel_data[1]
                         max_channel = channel
 
-         # print(max_channel)
-        return [max_channel,max_data]
+        # print(max_channel)
+        return [max_channel, max_data]
 
     @commands.Cog.listener()
     async def on_message(self, message):
@@ -79,9 +79,9 @@ class Status(commands.Cog):
 
             if not message.author.bot and message.guild is not None:
                 if message.channel in self.meta_list[message.guild]:
-                        self.meta_list[message.guild][message.channel][0].append(message.created_at)
-                        self.meta_list[message.guild][message.channel][1] = +1
-                        self.meta_list[message.guild][message.channel][2] = +1
+                    self.meta_list[message.guild][message.channel][0].append(message.created_at)
+                    self.meta_list[message.guild][message.channel][1] = +1
+                    self.meta_list[message.guild][message.channel][2] = +1
         except IndentationError and KeyError:
             pass
         await self.bot.process_commands(message)
@@ -128,18 +128,19 @@ class Status(commands.Cog):
     async def top(self, ctx):
         await ctx.send(self.channel_tag_in_message(self.most_used_channel(ctx.guild)[0]))
         return
+
     @commands.command(name='data', help='gives the channel usages')
     async def data(self, ctx):
         print(self.meta_list)
         print(self.meta_list[ctx.guild])
-        print('\n'+str(self.meta_list[ctx.guild].items()))
         print('\n' + str(self.meta_list[ctx.guild].items()))
-        x=''
+        print('\n' + str(self.meta_list[ctx.guild].items()))
+        x = ''
         for i, j in self.meta_list[ctx.guild].items():
-
-            x+=self.channel_tag_in_message(i)+"\t`"+str([j[2]])+"`"+"\n"
+            x += self.channel_tag_in_message(i) + "\t`" + str([j[2]]) + "`" + "\n"
         await ctx.send(x)
         return
+
     @commands.command(name='stop_count',
                       help='Stops considering the mentioned channel for max message count(to disinclude spam channels)')
     async def stop_count(self, ctx, channel_id):

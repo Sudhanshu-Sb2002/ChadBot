@@ -1,5 +1,11 @@
 import discord
 from discord.ext import commands
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
+TOKEN = os.getenv("DISCORD_TOKEN")
 
 intents = discord.Intents.default()
 intents.members = True
@@ -30,5 +36,5 @@ async def on_ready():
         activity=discord.Activity(type=discord.ActivityType.watching, name="]help (cos this server dead)"))
     print(f'Successfully logged in and booted...!')
 
-bot.run('ODA2MzM5MjA1Mjc3ODEwNjk4.YBn_5w.usdcqmgloVGo8Omtzv5jH9JNlgo', reconnect=True)
+bot.run(TOKEN, reconnect=True)
 
