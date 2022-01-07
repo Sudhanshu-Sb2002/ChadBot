@@ -1,11 +1,7 @@
+import datetime as dt
+
 import discord
 from discord.ext import tasks, commands
-import asyncio
-import datetime as dt
-from datetime import datetime as datetime
-from collections import deque
-import random
-import sys
 
 threadtime = dt.timedelta(hours=23)
 
@@ -22,11 +18,6 @@ class Threads(commands.Cog):
         for thread,yesno in self.threadlist.items():
             if yesno:
                 await thread.send("Well, somebody's gotta keep the thread active")
-
-    @commands.Cog.listener()
-    async def on_message(self,message):
-        print(message.channel)
-        print(type(message.channel))
 
 
     @commands.command(name='sot', help='Save our threads!!!')

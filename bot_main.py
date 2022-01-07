@@ -1,11 +1,6 @@
 import discord
-from discord.ext import tasks, commands
-import asyncio
-import datetime as dt
-from datetime import datetime as datetime
-from collections import deque
-import random
-import sys
+from discord.ext import commands
+
 intents = discord.Intents.default()
 intents.members = True
 intents.presences=True

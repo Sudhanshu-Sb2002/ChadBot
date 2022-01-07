@@ -1,12 +1,9 @@
-import discord
-
-from discord.ext import tasks, commands
-import asyncio
 import datetime as dt
-from datetime import datetime as datetime
 from collections import deque
-import random
-import sys
+from datetime import datetime as datetime
+
+import discord
+from discord.ext import tasks, commands
 
 update_time = dt.timedelta(minutes=1)
 recent_time = dt.timedelta(minutes=15)
